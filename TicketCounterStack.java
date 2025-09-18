@@ -99,13 +99,10 @@ do {
     	
     	System.out.println("Gender (MALE/FEMALE/OTHER):");
     	String genderStr=sc.nextLine().toUpperCase();
-    	Gender gen;
-    	try { 
-    		gen=Gender.valueOf(genderStr);
-    	}catch (IllegalArgumentException e) {
-    		System.out.println("Invalid gender. Defaulting to OTHER.");
-    		gen= Gender.OTHER;  
-    	}
+    	Gender gen = Gender.OTHER;
+        if(genderStr.equals("MALE")) gen = Gender.MALE;
+        else if(genderStr.equals("FEMALE")) gen = Gender.FEMALE;
   return new Person(name, age, gen);
     }
+
 }
